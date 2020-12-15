@@ -5,7 +5,7 @@ import datetime
 
 filename = "last.txt"
 date = datetime.datetime.now().strftime("%Y-%m-%d")
-project_url = "github.com"
+project_url = "https://github.com/bwilliams18/risky-or-not"
 
 
 def format_perc(fl):
@@ -79,9 +79,11 @@ if __name__ == "__main__":
     tweet_one = f"Risky or Not numbers update for @bugcounter & @benjaminchapman {nr_perc} of the time you agreed it was not risky 👍🏼, {r_perc} of the time you agreed that it was risky ☣️. The remaining {diff_perc} of the time you disagreed. 1/4\n\n"
     tweet_two = f"When you disagreed, Dr. Don said not risky 👍🏼 {don_nr} times, and Prof. Ben said not risky 👍🏼 {ben_nr} times. The data clearly shows that {risk_averse} 2/4\n\n"
     if len(new_diff) > 0:
-        tweet_three = f"Between Dr. Don and Prof. Ben disagreed on recent episodes:\n\t{diff_str}\n 3/4\n\n"
+        tweet_three = f"Between Dr. Don and Prof. Ben disagreed on recent episodes:\n\t{diff_str} 3/4\n\n"
     else:
-        tweet_three = f"Dr. Don and Prof Ben did not disagree on any recent episodes."
+        tweet_three = (
+            f"Dr. Don and Prof Ben did not disagree on any recent episodes. 3/4\n\n"
+        )
 
     with open(f"{date}.txt", "w") as f:
         f.write(tweet_one)
