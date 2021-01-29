@@ -1,4 +1,4 @@
-from os import path
+from os import path, mkdir
 import feedparser
 import pandas as pd
 import datetime
@@ -35,7 +35,7 @@ if __name__ == "__main__":
         elif nr < r:
             don = "👍🏼"
             ben = "☣️"
-        elif r > nr:
+        elif r < nr:
             ben = "👍🏼"
             don = "☣️"
         else:
@@ -84,8 +84,9 @@ if __name__ == "__main__":
         tweet_three = (
             f"Dr. Don and Prof Ben did not disagree on any recent episodes. 3/4\n\n"
         )
-
-    with open(f"{date}.txt", "w") as f:
+    if not path.exists("results"):
+        mkdir("results")
+    with open(f"results/{date}.txt", "w") as f:
         f.write(tweet_one)
         f.write(tweet_two)
         f.write(tweet_three)
